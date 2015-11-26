@@ -1,0 +1,83 @@
+{
+	"image": "touch_overlay.png",
+	"buttons": [
+	{
+		"id": "DPad up",
+		"target": "Up",
+		"shape": "triangle",
+		"x": 92,
+		"y": 366,
+		"x1": -14,
+		"y1": 260,
+		"x2": 200,
+		"y2": 260
+	},
+	{
+		"id": "DPad down",
+		"target": "Down",
+		"shape": "triangle",
+		"x": 92,
+		"y": 366,
+		"x1": -14,
+		"y1": 472,
+		"x2": 200,
+		"y2": 472
+	},
+	{
+		"id": "DPad left",
+		"target": "Left",
+		"shape": "triangle",
+		"x": 92,
+		"y": 366,
+		"x1": -14,
+		"y1": 260,
+		"x2": -14,
+		"y2": 472
+	},
+	{
+		"id": "DPad left extension",
+		"target": "Left",
+		"shape": "rectangle",
+		"x": -60,
+		"y": 290,
+		"width": 46,
+		"height": 182
+	},
+	{
+		"id": "DPad right",
+		"target": "Right",
+		"shape": "triangle",
+		"x": 92,
+		"y": 366,
+		"x1": 200,
+		"y1": 260,
+		"x2": 200,
+		"y2": 472
+	},
+	{
+		"id": "DPad right extension",
+		"target": "Right",
+		"shape": "rectangle",
+		"x": 200,
+		"y": 290,
+		"width": 46,
+		"height": 182
+	},
+	{
+		"id": "A button",
+		"target": "C",
+		"shape": "circle",
+		"x": 570,
+		"y": 310,
+		"radius": 60
+	},
+	{
+		"id": "B button",
+		"target": "B",
+		"shape": "circle",
+		"x": 470,
+		"y": 400,
+		"radius": 60
+	}
+	]
+}
