@@ -135,7 +135,6 @@ struct SharedStatePrivate
 			fileSystem.createPathCache();
 
 		fileSystem.initFontSets(fontState);
-
 		globalTexW = 128;
 		globalTexH = 64;
 
@@ -153,6 +152,7 @@ struct SharedStatePrivate
 
 		/* RGSS3 games will call setup_midi, so there's
 		 * no need to do it on startup */
+
 		if (rgssVer <= 2)
 			midiState.initIfNeeded(threadData->config);
 	}

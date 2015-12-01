@@ -669,9 +669,10 @@ reserve_stack(volatile char *limit, size_t size)
     if (!getrlimit(RLIMIT_STACK, &rl) && rl.rlim_cur == RLIM_INFINITY)
 	return;
 
-    if (size < stack_check_margin) return;
-    size -= stack_check_margin;
-
+    #ifdef __ANDROID__
+    	if (size < stack_check_margin) return;
+    	size -= stack_check_margin;
+    #endif
     size -= sizeof(buf); /* margin */
     if (IS_STACK_DIR_UPPER()) {
 	const volatile char *end = buf + sizeof(buf);
@@ -679,14 +680,20 @@ reserve_stack(volatile char *limit, size_t size)
 	if (limit > end) {
 	    size = limit - end;
 	    limit = alloca(size);
-	    limit[stack_check_margin+size-1] = 0;
+	    #ifndef __ANDROID__
+	   	 limit[stack_check_margin+size-1] = 0;
+	    #else
+		 limit[size-1] = 0;
+	    #endif
 	}
     }
     else {
 	limit -= size;
 	if (buf > limit) {
 	    limit = alloca(buf - limit);
-	    limit -= stack_check_margin;
+	    #ifndef __ANDROID__
+	    	limit -= stack_check_margin;
+	    #endif
 	    limit[0] = 0;
 	}
     }

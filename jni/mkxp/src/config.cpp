@@ -137,7 +137,7 @@ static std::string prefPath(const char *org, const char *app)
 typedef std::vector<std::string> StringVec;
 namespace po = boost::program_options;
 
-#define CONF_FILE "mkxp.conf"
+#define CONF_FILE FULL_MKXP_PATH
 
 Config::Config()
 {}
@@ -167,14 +167,14 @@ void Config::read(int argc, char *argv[])
 	PO_DESC(dataPathOrg, std::string, "") \
 	PO_DESC(dataPathApp, std::string, "") \
 	PO_DESC(iconPath, std::string, "") \
-	PO_DESC(execName, std::string, "Game") \
+	PO_DESC(execName, std::string, FULL_GAME_PATH) \
 	PO_DESC(titleLanguage, std::string, "") \
 	PO_DESC(midi.soundFont, std::string, "") \
 	PO_DESC(midi.chorus, bool, false) \
 	PO_DESC(midi.reverb, bool, false) \
 	PO_DESC(SE.sourceCount, int, 6) \
+	PO_DESC(pathCache, bool, false) \
 	PO_DESC(customScript, std::string, "") \
-	PO_DESC(pathCache, bool, true) \
 	PO_DESC(useScriptNames, bool, false)
 
 // Not gonna take your shit boost
