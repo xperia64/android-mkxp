@@ -480,6 +480,9 @@ struct GraphicsPrivate
 	Quad screenQuad;
 	TEXFBO transBuffer;
 
+	TEX::ID overlayTex;
+	Vec2i overlayTexSize;
+
 	/* Global list of all live Disposables
 	 * (disposed on reset) */
 	IntruList<Disposable> dispList;
@@ -516,6 +519,29 @@ struct GraphicsPrivate
 		TEXFBO::linkFBO(transBuffer);
 
 		fpsLimiter.resetFrameAdjust();
+		
+		const std::string &olImage = rtData->config.touchOverlay.image;
+		if (!olImage.empty())
+		{
+			SDL_RWops *ops = SDL_RWFromFile(olImage.c_str(), "rb");
+			SDL_Surface *surf = IMG_Load_RW(ops, 1);
+
+			if (surf)
+			{
+				overlayTex = TEX::gen();
+
+				TEX::bind(overlayTex);
+				TEX::setRepeat(false);
+				TEX::setSmooth(true);
+				TEX::uploadImage(surf->w, surf->h, surf->pixels, GL_RGBA);
+
+				overlayTexSize = Vec2i(surf->w, surf->h);
+			}
+			else
+			{
+				Debug() << "failed to load overlay image:" << SDL_GetError();
+			}
+		}
 	}
 
 	~GraphicsPrivate()
@@ -524,6 +550,8 @@ struct GraphicsPrivate
 		TEXFBO::fini(currentScene);
 
 		TEXFBO::fini(transBuffer);
+
+		TEX::del(overlayTex);
 	}
 
 	void updateScreenResoRatio(RGSSThreadData *rtData)
@@ -610,9 +638,30 @@ struct GraphicsPrivate
 		                      threadData->config.smoothScaling);
 	}
 
+	void drawOverlay()
+	{
+		if (overlayTex == TEX::ID(0))
+			return;
+
+		SimpleShader &shader = shState->shaders().simple;
+		shader.bind();
+		shader.applyViewportProj();
+		shader.setTexSize(overlayTexSize);
+		shader.setTranslation(Vec2i());
+
+		glState.blend.pushSet(true);
+
+		TEX::bind(overlayTex);
+		screenQuad.draw();
+
+		glState.blend.pop();
+	}
+
+
 	void redrawScreen()
 	{
 		screen.composite();
+		drawOverlay();
 
 		GLMeta::blitBeginScreen(winSize);
 		GLMeta::blitSource(screen.getPP().frontBuffer());
@@ -792,6 +841,7 @@ void Graphics::transition(int duration,
 		FBO::bind(p->transBuffer.fbo);
 		FBO::clear();
 		p->screenQuad.draw();
+		p->drawOverlay();
 
 		p->checkResize();
 

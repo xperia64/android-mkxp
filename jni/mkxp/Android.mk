@@ -3,7 +3,7 @@ include $(CLEAR_VARS)
 
 
 LOCAL_MODULE:= mkxp
-LOCAL_CPPFLAGS:=-DGLES2_HEADER -DFULL_GAME_PATH=\"/sdcard/mkxp/Game\" -DFULL_MKXP_PATH=\"/sdcard/mkxp/mkxp.conf\"
+LOCAL_CPPFLAGS:=-DGLES2_HEADER -DFULL_MKXP_PATH=\"/sdcard/mkxp/mkxp.conf\"
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../OpenAL $(LOCAL_PATH)/../SDL_sound \
 	$(LOCAL_PATH)/../libsigc++ $(LOCAL_PATH) \
 	$(LOCAL_PATH)/../boost_headers $(LOCAL_PATH)/../pixman/pixman/pixman \
