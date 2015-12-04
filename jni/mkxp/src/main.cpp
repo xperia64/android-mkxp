@@ -207,6 +207,7 @@ int main(int argc, char *argv[])
 		}
 
 	conf.readGameINI();
+	conf.readOverlayDesc();
 
 	assert(conf.rgssVersion >= 1 && conf.rgssVersion <= 3);
 	printRgssVersion(conf.rgssVersion);
