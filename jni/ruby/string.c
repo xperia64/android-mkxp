@@ -7654,8 +7654,7 @@ rb_str_oct(VALUE str)
 static VALUE
 rb_str_crypt(VALUE str, VALUE salt)
 {
-	return str;
-    /*extern char *crypt(const char *, const char *);
+    extern char *crypt(const char *, const char *);
     VALUE result;
     const char *s, *saltp;
     char *res;
@@ -7690,7 +7689,7 @@ rb_str_crypt(VALUE str, VALUE salt)
     result = rb_str_new_cstr(res);
     OBJ_INFECT(result, str);
     OBJ_INFECT(result, salt);
-    return result;*/
+    return result;
 }
 
 
