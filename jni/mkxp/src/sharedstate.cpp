@@ -126,8 +126,9 @@ struct SharedStatePrivate
 			fclose(tmp);
 		}
 
+#ifndef __ANDROID__
 		fileSystem.addPath(".");
-
+#endif
 		for (size_t i = 0; i < config.rtps.size(); ++i)
 			fileSystem.addPath(config.rtps[i].c_str());
 
