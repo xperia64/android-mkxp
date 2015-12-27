@@ -1,14 +1,13 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
-
 LOCAL_MODULE:= mkxp
 LOCAL_CPPFLAGS:=-DGLES2_HEADER -DFULL_MKXP_PATH=\"/sdcard/mkxp/mkxp.conf\"
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../OpenAL $(LOCAL_PATH)/../SDL_sound \
 	$(LOCAL_PATH)/../libsigc++ $(LOCAL_PATH) \
 	$(LOCAL_PATH)/../boost_headers $(LOCAL_PATH)/../pixman/pixman/pixman \
 	$(LOCAL_PATH)/../OpenAL/include/AL $(LOCAL_PATH)/../physfs/src \
-	$(LOCAL_PATH)/../vorbis-include $(LOCAL_PATH)/src $(LOCAL_PATH)/../ruby/include
+	$(LOCAL_PATH)/../vorbis-include $(LOCAL_PATH)/src $(LOCAL_PATH)/shader $(LOCAL_PATH)/assets $(LOCAL_PATH)/../ruby/include
 LOCAL_SRC_FILES := \
 	$(LOCAL_PATH)/src/main.cpp \
 	$(LOCAL_PATH)/src/audio.cpp \
