@@ -1,6 +1,12 @@
 #!/bin/sh
-cd jni
-ndk-build -j3
+cd jni/mkxp
+./make_xxd.sh
+cd ..
+if [ -z "$1" ]; then
+   ndk-build -j3
+else
+   ndk-build "$1"
+fi
 cd ..
 ant debug
 adb install -r bin/mkxp-debug.apk

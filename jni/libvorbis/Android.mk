@@ -3,7 +3,10 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := vorbis
-LOCAL_CFLAGS += -I$(LOCAL_PATH)/../vorbis-include -ffast-math -fsigned-char
+
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../vorbis-include
+
+LOCAL_CFLAGS := -ffast-math -fsigned-char
 ifeq ($(TARGET_ARCH),arm)
 	LOCAL_CFLAGS += -march=armv6 -marm -mfloat-abi=softfp -mfpu=vfp
 endif
