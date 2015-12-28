@@ -42,11 +42,13 @@ LIBPIXMAN_CFLAGS:=-D_USE_MATH_DEFINES -DPIXMAN_NO_TLS -DPACKAGE="android-cairo" 
 
 include $(CLEAR_VARS)
 
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/pixman/pixman \
+		   $(LOCAL_PATH)/pixman-extra \
+		   $(LOCAL_PATH)
+
 LOCAL_MODULE    := pixman
 LOCAL_CFLAGS    := -O2 $(LIBPIXMAN_CFLAGS) \
-    -I$(LOCAL_PATH)/pixman/pixman -I$(LOCAL_PATH)/pixman-extra \
-    -include $(LOCAL_PATH)/"pixman-extra/pixman-elf-fix.h" \
-    -Wno-missing-field-initializers
+        -Wno-missing-field-initializers
 #LOCAL_LDFLAGS   := 
 LOCAL_SRC_FILES := $(LIBPIXMAN_SRC)
 LOCAL_STATIC_LIBRARIES := cpufeatures
