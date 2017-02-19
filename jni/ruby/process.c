@@ -3353,7 +3353,7 @@ has_privilege(void)
     rb_gid_t rgid, egid;
 
 #if defined HAVE_ISSETUGID
-    if (issetugid())
+    //if (issetugid())
 	return 1;
 #endif
 
@@ -5012,13 +5012,13 @@ obj2uid(VALUE id
 #endif
 	if (!pwptr) {
 #ifndef USE_GETPWNAM_R
-	    endpwent();
+	  // endpwent();
 #endif
 	    rb_raise(rb_eArgError, "can't find user for %s", usrname);
 	}
 	uid = pwptr->pw_uid;
 #ifndef USE_GETPWNAM_R
-	endpwent();
+	// endpwent();
 #endif
     }
     return uid;
@@ -5649,7 +5649,8 @@ static VALUE
 p_sys_issetugid(VALUE obj)
 {
     rb_secure(2);
-    if (issetugid()) {
+    //if (issetugid()) {
+		if (0) {
 	return Qtrue;
     }
     else {
