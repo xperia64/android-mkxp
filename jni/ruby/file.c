@@ -3214,13 +3214,13 @@ rb_home_dir_of(VALUE user, VALUE result)
 #ifdef HAVE_PWD_H
     struct passwd *pwPtr = getpwnam(RSTRING_PTR(user));
     if (!pwPtr) {
-	endpwent();
+	//endpwent();
 #endif
 	rb_raise(rb_eArgError, "user %"PRIsVALUE" doesn't exist", user);
 #ifdef HAVE_PWD_H
     }
     copy_home_path(result, pwPtr->pw_dir);
-    endpwent();
+   // endpwent();
 #endif
     return result;
 }
