@@ -244,6 +244,7 @@ public class SDLActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+		android.os.Process.killProcess(android.os.Process.myPid());
         Log.v(TAG, "onDestroy()");
 
         if (SDLActivity.mBrokenLibraries) {
