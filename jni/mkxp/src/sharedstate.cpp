@@ -173,7 +173,6 @@ void SharedState::initInstance(RGSSThreadData *threadData)
 	 * Font depends on SharedState existing */
 
 	rgssVersion = threadData->config.rgssVersion;
-	Font::initDefaults();
 
 	_globalIBO = new GlobalIBO();
 	_globalIBO->ensureSize(1);
@@ -184,6 +183,7 @@ void SharedState::initInstance(RGSSThreadData *threadData)
 	try
 	{
 		SharedState::instance = new SharedState(threadData);
+		Font::initDefaults(instance->p->fontState);
 		defaultFont = new Font();
 	}
 	catch (const Exception &exc)

@@ -111,7 +111,11 @@ void EventThread::process(RGSSThreadData &rtData)
 	UnidirMessage<Vec2i> &windowSizeMsg = rtData.windowSizeMsg;
 
 	initALCFunctions(rtData.alcDev);
+
+	// XXX this function breaks input focus on OSX
+#ifndef __MACOSX__
 	SDL_SetEventFilter(eventFilter, &rtData);
+#endif
 
 	fullscreen = rtData.config.fullscreen;
 	int toggleFSMod = rtData.config.anyAltToggleFS ? KMOD_ALT : KMOD_LALT;
@@ -127,7 +131,9 @@ void EventThread::process(RGSSThreadData &rtData)
 	bool displayingFPS = false;
 
 	bool cursorInWindow = false;
-	bool windowFocused = false;
+
+	/* SDL doesn't send an initial FOCUS_GAINED event */
+	bool windowFocused = true;
 
 	bool terminate = false;
 
