@@ -69,11 +69,17 @@ int rgssThreadFun(void *userdata)
 {
 	RGSSThreadData *threadData = static_cast<RGSSThreadData*>(userdata);
 	const Config &conf = threadData->config;
-	SDL_Window *win = threadData->window;
+	SDL_Window *win;
 	SDL_GLContext glCtx;
 
-	/* Setup GL context */
+	/* Setup GL context; Set the color space to 24 bit */
+	SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+	
+	win = threadData->window;
 
 	if (conf.debugMode)
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
@@ -251,6 +257,13 @@ int main(int argc, char *argv[])
 	SDL_Surface *iconImg = IMG_Load_RW(iconSrc, SDL_TRUE);
 
 	SDL_Window *win;
+	
+	/* Set the color space to 24 bit */
+	SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+	
 	Uint32 winFlags = SDL_WINDOW_OPENGL | SDL_WINDOW_INPUT_FOCUS;
 
 	if (conf.winResizable)
