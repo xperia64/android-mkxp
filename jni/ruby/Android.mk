@@ -5,6 +5,16 @@ include $(CLEAR_VARS)
 LOCAL_MODULE:= ruby
 LOCAL_CFLAGS:= -DRUBY_EXPORT -pthread
 
+ifeq ($(TARGET_ARCH_ABI), armeabi)
+	LOCAL_CFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), armeabi-v7a)
+	LOCAL_CFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), x86)
+	LOCAL_CFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), mips)
+	LOCAL_CFLAGS += -DARCH_32BIT
+endif
+
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include $(LOCAL_PATH)
 LOCAL_SRC_FILES := \
 	$(LOCAL_PATH)/main.c \
@@ -84,7 +94,17 @@ LOCAL_SRC_FILES := \
 	$(LOCAL_PATH)/addr2line.c \
 	$(LOCAL_PATH)/dmyext.c \
 	$(LOCAL_PATH)/dmyenc.c \
-	$(LOCAL_PATH)/ext/zlib/zlib.c \
+	$(LOCAL_PATH)/ext/zlib/zlib.c
+
+ifeq ($(TARGET_ARCH_ABI), armeabi)
+	LOCAL_CFLAGS += -DMY_32BIT
+else ifeq ($(TARGET_ARCH_ABI), armeabi-v7a)
+	LOCAL_CFLAGS += -DMY_32BIT
+else ifeq ($(TARGET_ARCH_ABI), x86)
+	LOCAL_CFLAGS += -DMY_32BIT
+else ifeq ($(TARGET_ARCH_ABI), mips)
+	LOCAL_CFLAGS += -DMY_32BIT
+endif
 
 #LOCAL_LDLIBS := -ldl -lm -lz
 include $(BUILD_STATIC_LIBRARY)

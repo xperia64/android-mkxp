@@ -94,6 +94,16 @@ LOCAL_CFLAGS := \
 	-DG_DISABLE_DEPRECATED		\
 	-DGLIB_COMPILATION
 
+ifeq ($(TARGET_ARCH_ABI), armeabi)
+	LOCAL_CFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), armeabi-v7a)
+	LOCAL_CFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), x86)
+	LOCAL_CFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), mips)
+	LOCAL_CFLAGS += -DARCH_32BIT
+endif
+
 ifeq ($(GLIB_BUILD_STATIC),true)
 include $(BUILD_STATIC_LIBRARY)
 else

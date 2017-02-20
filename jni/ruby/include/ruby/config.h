@@ -33,7 +33,6 @@
 #define HAVE_SYS_SELECT_H 1
 #define HAVE_SYS_TIME_H 1
 #define HAVE_SYS_TIMES_H 1
-#define HAVE_PWD_H 1
 #define HAVE_GRP_H 1
 #define HAVE_UTIME_H 1
 #define HAVE_SYS_RESOURCE_H 1
@@ -51,6 +50,10 @@
 #define typeof __typeof__
 #define HAVE_LONG_LONG 1
 #define HAVE_OFF_T 1
+// Please just use stdint..
+// I don't understand why all these projects are
+// obsessed with their custom data types
+#ifdef ARCH_32BIT
 #define SIZEOF_INT 4
 #define SIZEOF_SHORT 2
 #define SIZEOF_LONG 4
@@ -63,6 +66,20 @@
 #define SIZEOF_DOUBLE 8
 #define SIZEOF_TIME_T 4
 #define SIZEOF_CLOCK_T 4
+#else
+#define SIZEOF_INT 4
+#define SIZEOF_SHORT 2
+#define SIZEOF_LONG 8
+#define SIZEOF_LONG_LONG 8
+#define SIZEOF___INT64 0
+#define SIZEOF___INT128 0
+#define SIZEOF_OFF_T 8
+#define SIZEOF_VOIDP 8
+#define SIZEOF_FLOAT 4
+#define SIZEOF_DOUBLE 8
+#define SIZEOF_TIME_T 8
+#define SIZEOF_CLOCK_T 8
+#endif
 #define PACKED_STRUCT(x) x __attribute__((packed))
 #define PACKED_STRUCT_UNALIGNED(x) x
 #define PRI_LL_PREFIX "ll"
@@ -239,7 +256,6 @@
 #define HAVE_INITGROUPS 1
 #define HAVE_IOCTL 1
 #define HAVE_ISFINITE 1
-#define HAVE_ISSETUGID 1
 #define HAVE_KILLPG 1
 #define HAVE_LCHOWN 1
 #define HAVE_LINK 1
@@ -337,8 +353,13 @@
 #define DLEXT_MAXLEN 3
 #define DLEXT ".so"
 #define LIBDIR_BASENAME "lib"
+#ifdef ARCH_32BIT
 #define RUBY_SETJMP(env) __builtin_setjmp((env))
 #define RUBY_LONGJMP(env,val) __builtin_longjmp((env),val)
+#else
+#define RUBY_SETJMP(env) setjmp(env)
+#define RUBY_LONGJMP(env,val) longjmp((env),val)
+#endif
 #define RUBY_JMP_BUF jmp_buf
 #define HAVE_PTHREAD_H 1
 #define RUBY_PLATFORM "arm-linux-androideabi"
