@@ -5,6 +5,15 @@ ifeq ($(TARGET_ARCH_ABI),armeabi)
   # ARMv5, used fixed point math
   LOCAL_CFLAGS += -marm -DOPENAL_FIXED_POINT -DOPENAL_FIXED_POINT_SHIFT=16
 endif
+ifeq ($(TARGET_ARCH_ABI), armeabi)
+	LOCAL_CFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), armeabi-v7a)
+	LOCAL_CFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), x86)
+	LOCAL_CFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), mips)
+	LOCAL_CFLAGS += -DARCH_32BIT
+endif
 
 LOCAL_MODULE:= OpenAL
 MAX_SOURCES_LOW ?= 4

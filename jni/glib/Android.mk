@@ -25,7 +25,6 @@ GLIB_STATIC_LIBRARIES :=		\
 
 include $(CLEAR_VARS)
 
-
 include $(GLIB_TOP)/glib/Android.mk
 include $(GLIB_TOP)/gthread/Android.mk
 

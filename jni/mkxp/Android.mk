@@ -3,6 +3,17 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE:= mkxp
 LOCAL_CPPFLAGS:=-DSHARED_FLUID -DGLES2_HEADER -DFULL_MKXP_PATH=\"/sdcard/mkxp/mkxp.conf\"
+
+ifeq ($(TARGET_ARCH_ABI), armeabi)
+	LOCAL_CPPFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), armeabi-v7a)
+	LOCAL_CPPFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), x86)
+	LOCAL_CPPFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), mips)
+	LOCAL_CPPFLAGS += -DARCH_32BIT
+endif
+
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../OpenAL $(LOCAL_PATH)/../SDL_sound \
 	$(LOCAL_PATH)/../libsigc++ $(LOCAL_PATH) \
 	$(LOCAL_PATH)/../boost_headers $(LOCAL_PATH)/../pixman/pixman/pixman \

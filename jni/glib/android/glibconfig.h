@@ -10,6 +10,7 @@
 
 #include <limits.h>
 #include <float.h>
+#include <stdint.h>
 #define GLIB_HAVE_ALLOCA_H
 #define GLIB_HAVE_SYS_POLL_H
 
@@ -35,22 +36,22 @@ G_BEGIN_DECLS
 #define G_MAXLONG	LONG_MAX
 #define G_MAXULONG	ULONG_MAX
 
-typedef signed char gint8;
-typedef unsigned char guint8;
-typedef signed short gint16;
-typedef unsigned short guint16;
+typedef int8_t gint8;
+typedef uint8_t guint8;
+typedef int16_t gint16;
+typedef uint16_t guint16;
 #define G_GINT16_MODIFIER "h"
 #define G_GINT16_FORMAT "hi"
 #define G_GUINT16_FORMAT "hu"
-typedef signed int gint32;
-typedef unsigned int guint32;
+typedef int32_t gint32;
+typedef uint32_t guint32;
 #define G_GINT32_MODIFIER ""
 #define G_GINT32_FORMAT "i"
 #define G_GUINT32_FORMAT "u"
 #define G_HAVE_GINT64 1          /* deprecated, always true */
 
-G_GNUC_EXTENSION typedef signed long long gint64;
-G_GNUC_EXTENSION typedef unsigned long long guint64;
+G_GNUC_EXTENSION typedef int64_t gint64;
+G_GNUC_EXTENSION typedef uint64_t guint64;
 
 #define G_GINT64_CONSTANT(val)	(G_GNUC_EXTENSION (val##LL))
 #define G_GUINT64_CONSTANT(val)	(G_GNUC_EXTENSION (val##ULL))
@@ -58,12 +59,22 @@ G_GNUC_EXTENSION typedef unsigned long long guint64;
 #define G_GINT64_FORMAT "lli"
 #define G_GUINT64_FORMAT "llu"
 
+#ifdef ARCH_32BIT
 #define GLIB_SIZEOF_VOID_P 4
 #define GLIB_SIZEOF_LONG   4
 #define GLIB_SIZEOF_SIZE_T 4
-
-typedef signed int gssize;
-typedef unsigned int gsize;
+#else
+#define GLIB_SIZEOF_VOID_P 8
+#define GLIB_SIZEOF_LONG 8
+#define GLIB_SIZEOF_SIZE_T 8
+#endif
+#ifdef ARCH_32BIT
+typedef int32_t gssize;
+typedef uint32_t gsize;
+#else
+typedef int64_t gssize;
+typedef uint64_t gsize;
+#endif
 #define G_GSIZE_MODIFIER ""
 #define G_GSSIZE_FORMAT "i"
 #define G_GSIZE_FORMAT "u"
@@ -87,8 +98,13 @@ typedef gint64 goffset;
 #define GINT_TO_POINTER(i)	((gpointer)  (i))
 #define GUINT_TO_POINTER(u)	((gpointer)  (u))
 
-typedef signed int gintptr;
-typedef unsigned int guintptr;
+#ifdef ARCH_32BIT
+typedef int32_t gintptr;
+typedef uint32_t guintptr;
+#else
+typedef int64_t gintptr;
+typedef uint64_t guintptr;
+#endif
 
 #define G_GINTPTR_MODIFIER      ""
 #define G_GINTPTR_FORMAT        "i"
