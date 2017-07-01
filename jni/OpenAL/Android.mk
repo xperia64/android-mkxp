@@ -19,7 +19,7 @@ LOCAL_MODULE:= OpenAL
 MAX_SOURCES_LOW ?= 4
 MAX_SOURCES_START ?= 8
 MAX_SOURCES_HIGH ?= 64
-LOCAL_CFLAGS += -DMAX_SOURCES_LOW=$(MAX_SOURCES_LOW) -DMAX_SOURCES_START=$(MAX_SOURCES_START) -DMAX_SOURCES_HIGH=$(MAX_SOURCES_HIGH) -DAL_ALEXT_PROTOTYPES -DANDROID -ffunction-sections -funwind-tables -fstack-protector -fno-short-enums -DHAVE_GCC_VISIBLITY -O3
+LOCAL_CFLAGS += -DMAX_SOURCES_LOW=$(MAX_SOURCES_LOW) -DMAX_SOURCES_START=$(MAX_SOURCES_START) -DMAX_SOURCES_HIGH=$(MAX_SOURCES_HIGH) -DAL_ALEXT_PROTOTYPES -DANDROID -ffunction-sections -funwind-tables -fstack-protector -fno-short-enums -DHAVE_GCC_VISIBLITY -O3 -DPOST_FROYO
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include \
 					$(LOCAL_PATH)/OpenAL32/Include
@@ -50,7 +50,8 @@ LOCAL_SRC_FILES :=  \
                     $(LOCAL_PATH)/Alc/null.c                 \
                     $(LOCAL_PATH)/Alc/panning.c              \
                     $(LOCAL_PATH)/Alc/mixer.c                \
-                    $(LOCAL_PATH)/Alc/audiotrack.c
+                    $(LOCAL_PATH)/Alc/audiotrack.c           \
+		    $(LOCAL_PATH)/Alc/opensles.c
 
 #LOCAL_LDLIBS := -llog
 include $(BUILD_STATIC_LIBRARY)

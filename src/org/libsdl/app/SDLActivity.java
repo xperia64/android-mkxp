@@ -72,16 +72,17 @@ public class SDLActivity extends Activity {
      */
     protected String[] getLibraries() {
         return new String[] {
-            "mkxp"
+            "mkxp_wrapper"
         };
     }
 
     // Load the .so
     public void loadLibraries() {
-       for (String lib : getLibraries()) {
-          System.loadLibrary(lib);
-       }
-       //MKXPActivity.loadLibs(MKXPActivity.getLibDir(this)+"libmkxp.so");
+        for (String lib : getLibraries()) {
+            System.loadLibrary(lib);
+        }
+        MKXPActivity.loadLibs(MKXPActivity.getLibDir(this)+"libmkxp.so");
+        //MKXPActivity.unloadLibs();
     }
 
     /**
@@ -952,7 +953,6 @@ class SDLMain implements Runnable {
     @Override
     public void run() {
         // Runs SDL_main()
-        System.out.println("mkxp tezst");
         SDLActivity.nativeInit(SDLActivity.mSingleton.getArguments());
 
         //Log.v("SDL", "SDL thread terminated");

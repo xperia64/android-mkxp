@@ -315,6 +315,9 @@ void alc_audiotrack_init(BackendFuncs *func_list)
 void alc_audiotrack_deinit(void)
 {
     /* release cached AudioTrack class */
+    if(!env) // Added sanity check
+	    return;
+
     JavaVM *javaVM = alcGetJavaVM();
     (*env)->DeleteGlobalRef(env, cAudioTrack);
     (*javaVM)->DetachCurrentThread(javaVM);

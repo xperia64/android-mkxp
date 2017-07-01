@@ -19,4 +19,5 @@ public class MKXPActivity extends SDLActivity
         return s;
     }
     public static native void loadLibs(String path);
+    public static native void unloadLibs();
 }

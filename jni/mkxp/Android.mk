@@ -84,5 +84,5 @@ LOCAL_SRC_FILES := \
 	$(LOCAL_PATH)/binding-mri/tilemapvx-binding.cpp \
 
 LOCAL_STATIC_LIBRARIES:=vorbis physfs sigc++ pixman boost_program_options ruby SDL2_static SDL2_ttf SDL2_sound SDL2_image fluidsynth ogg OpenAL
-LOCAL_LDLIBS:=-lz -llog -ldl -lm
+LOCAL_LDLIBS:=-lz -llog -ldl -lm -lOpenSLES
 include $(BUILD_SHARED_LIBRARY)
