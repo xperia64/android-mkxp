@@ -83,7 +83,6 @@ LOCAL_SRC_FILES := \
 	$(LOCAL_PATH)/binding-mri/windowvx-binding.cpp \
 	$(LOCAL_PATH)/binding-mri/tilemapvx-binding.cpp \
 
-LOCAL_SHARED_LIBRARIES:=OpenAL ogg fluidsynth
-LOCAL_STATIC_LIBRARIES:=vorbis physfs sigc++ pixman boost_program_options ruby SDL2_static SDL2_ttf SDL2_sound SDL2_image 
+LOCAL_STATIC_LIBRARIES:=vorbis physfs sigc++ pixman boost_program_options ruby SDL2_static SDL2_ttf SDL2_sound SDL2_image fluidsynth ogg OpenAL
 LOCAL_LDLIBS:=-lz -llog -ldl -lm
 include $(BUILD_SHARED_LIBRARY)

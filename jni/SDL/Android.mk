@@ -10,6 +10,17 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := SDL2
 
+ifeq ($(TARGET_ARCH_ABI), armeabi)
+        LOCAL_CFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), armeabi-v7a)
+        LOCAL_CFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), x86)
+        LOCAL_CFLAGS += -DARCH_32BIT
+else ifeq ($(TARGET_ARCH_ABI), mips)
+        LOCAL_CFLAGS += -DARCH_32BIT
+endif
+
+
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_C_INCLUDES)
@@ -47,9 +58,9 @@ LOCAL_SRC_FILES := \
 	$(wildcard $(LOCAL_PATH)/src/test/*.c))
 
 LOCAL_CFLAGS += -DGL_GLEXT_PROTOTYPES
-LOCAL_LDLIBS := -ldl -lGLESv1_CM -lGLESv2 -llog -landroid
+#LOCAL_LDLIBS := -ldl -lGLESv1_CM -lGLESv2 -llog -landroid
 
-include $(BUILD_SHARED_LIBRARY)
+#include $(BUILD_SHARED_LIBRARY)
 
 ###########################
 #

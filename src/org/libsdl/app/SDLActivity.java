@@ -30,6 +30,8 @@ import android.media.*;
 import android.hardware.*;
 import android.content.pm.ActivityInfo;
 
+import org.ancurio.mkxp.MKXPActivity;
+
 /**
     SDL Activity
 */
@@ -70,12 +72,6 @@ public class SDLActivity extends Activity {
      */
     protected String[] getLibraries() {
         return new String[] {
-            // "SDL2_image",
-            // "SDL2_mixer",
-            // "SDL2_net",
-            // "SDL2_ttf",,
-        	"ogg",
-        	"OpenAL",
             "mkxp"
         };
     }
@@ -85,6 +81,7 @@ public class SDLActivity extends Activity {
        for (String lib : getLibraries()) {
           System.loadLibrary(lib);
        }
+       //MKXPActivity.loadLibs(MKXPActivity.getLibDir(this)+"libmkxp.so");
     }
 
     /**
@@ -955,6 +952,7 @@ class SDLMain implements Runnable {
     @Override
     public void run() {
         // Runs SDL_main()
+        System.out.println("mkxp tezst");
         SDLActivity.nativeInit(SDLActivity.mSingleton.getArguments());
 
         //Log.v("SDL", "SDL thread terminated");
@@ -1397,7 +1395,7 @@ class DummyEdit extends View implements View.OnKeyListener {
 
         outAttrs.inputType = InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
         outAttrs.imeOptions = EditorInfo.IME_FLAG_NO_EXTRACT_UI
-                | 33554432 /* API 11: EditorInfo.IME_FLAG_NO_FULLSCREEN */;
+                | EditorInfo.IME_FLAG_NO_FULLSCREEN /* API 11: EditorInfo.IME_FLAG_NO_FULLSCREEN */;
 
         return ic;
     }

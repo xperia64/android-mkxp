@@ -4,7 +4,7 @@ LOCAL_PATH := $(call my-dir)
 
 GLIB_TOP := $(LOCAL_PATH)
 
-GLIB_BUILD_STATIC := $(BUILD_STATIC)
+GLIB_BUILD_STATIC := true
 
 GLIB_C_INCLUDES :=			\
 	$(GLIB_TOP)			\

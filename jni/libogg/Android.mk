@@ -16,4 +16,4 @@ LOCAL_SRC_FILES := \
 	bitwise.c \
 	framing.c
 
-include $(BUILD_SHARED_LIBRARY)
+include $(BUILD_STATIC_LIBRARY)

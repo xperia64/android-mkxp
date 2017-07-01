@@ -52,6 +52,6 @@ LOCAL_SRC_FILES :=  \
                     $(LOCAL_PATH)/Alc/mixer.c                \
                     $(LOCAL_PATH)/Alc/audiotrack.c
 
-LOCAL_LDLIBS := -llog
-include $(BUILD_SHARED_LIBRARY)
+#LOCAL_LDLIBS := -llog
+include $(BUILD_STATIC_LIBRARY)
 

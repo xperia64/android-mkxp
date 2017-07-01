@@ -85,9 +85,14 @@ static SDL_bool bHasNewData;
                  Functions called by JNI
 *******************************************************************************/
 
+// OpenAL stuff
+extern jint al_JNI_OnLoad(JavaVM *vm, void *reserved);
+//extern jint al_JNI_OnUnload(JavaVM *vm, void *reserved);
+
 /* Library init */
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved)
 {
+    al_JNI_OnLoad(vm, reserved);
     JNIEnv *env;
     mJavaVM = vm;
     LOGI("JNI_OnLoad called");

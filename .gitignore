@@ -3,3 +3,12 @@ obj
 gen
 bin
 libs
+*.iml
+.gradle
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+*.swp

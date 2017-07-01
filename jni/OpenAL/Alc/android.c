@@ -8,7 +8,7 @@ JavaVM *alcGetJavaVM(void) {
 	return javaVM;
 }
 
-jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+jint al_JNI_OnLoad(JavaVM *vm, void *reserved) {
 	BackendFuncs func_list;
 	if (apportableOpenALFuncs.alc_android_set_java_vm) {
 		apportableOpenALFuncs.alc_android_set_java_vm(vm);
@@ -17,7 +17,7 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
 	return JNI_VERSION_1_4;
 }
 
-void JNICALL JNI_OnUnload (JavaVM *vm, void *reserved)
+void JNICALL al_JNI_OnUnload (JavaVM *vm, void *reserved)
 {
 	if (apportableOpenALFuncs.alc_android_set_java_vm) {
 		apportableOpenALFuncs.alc_android_set_java_vm(NULL);

@@ -106,7 +106,11 @@
 #define HAVE_SYSCONF    1
 #define HAVE_CLOCK_GETTIME	1
 
+#ifdef ARCH_32BIT
 #define SIZEOF_VOIDP 4
+#else
+#define SIZEOF_VOIDP 8
+#endif
 
 /* Enable various audio drivers */
 #define SDL_AUDIO_DRIVER_ANDROID    1
