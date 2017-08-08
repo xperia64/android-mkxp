@@ -1,0 +1,3 @@
+[submodule "jni/mkxp"]
+	path = jni/mkxp
+	url = https://github.com/radialapps/mkxp
