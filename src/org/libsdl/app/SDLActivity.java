@@ -244,6 +244,9 @@ public class SDLActivity extends Activity {
     protected void onDestroy() {
         Log.v(TAG, "onDestroy()");
 
+		//FIXME: Find a better way to prevent crashes
+		android.os.Process.killProcess(android.os.Process.myPid());
+		
         if (SDLActivity.mBrokenLibraries) {
            super.onDestroy();
            // Reset everything in case the user re opens the app
