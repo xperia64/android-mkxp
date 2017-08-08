@@ -72,7 +72,7 @@ public class SDLActivity extends Activity {
      */
     protected String[] getLibraries() {
         return new String[] {
-            "mkxp_wrapper"
+            "mkxp_wrapper", "mkxp"
         };
     }
 
@@ -81,7 +81,7 @@ public class SDLActivity extends Activity {
         for (String lib : getLibraries()) {
             System.loadLibrary(lib);
         }
-        MKXPActivity.loadLibs(MKXPActivity.getLibDir(this)+"libmkxp.so");
+        //MKXPActivity.loadLibs(MKXPActivity.getLibDir(this)+"libmkxp.so");
         //MKXPActivity.unloadLibs();
     }
 
