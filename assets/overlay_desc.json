@@ -4,64 +4,38 @@
 	{
 		"id": "DPad up",
 		"target": "Up",
-		"shape": "triangle",
-		"x": 92,
-		"y": 366,
-		"x1": -14,
-		"y1": 260,
-		"x2": 200,
-		"y2": 260
+		"shape": "rectangle",
+		"x": 89,
+		"y": 263,
+		"width": 55,
+		"height": 101
 	},
 	{
 		"id": "DPad down",
 		"target": "Down",
-		"shape": "triangle",
-		"x": 92,
-		"y": 366,
-		"x1": -14,
-		"y1": 472,
-		"x2": 200,
-		"y2": 472
+		"shape": "rectangle",
+		"x": 89,
+		"y": 364,
+		"width": 55,
+		"height": 101
 	},
 	{
 		"id": "DPad left",
 		"target": "Left",
-		"shape": "triangle",
-		"x": 92,
-		"y": 366,
-		"x1": -14,
-		"y1": 260,
-		"x2": -14,
-		"y2": 472
-	},
-	{
-		"id": "DPad left extension",
-		"target": "Left",
 		"shape": "rectangle",
-		"x": -60,
-		"y": 290,
-		"width": 46,
-		"height": 182
+		"x": 12,
+		"y": 339,
+		"width": 77,
+		"height": 55
 	},
 	{
 		"id": "DPad right",
 		"target": "Right",
-		"shape": "triangle",
-		"x": 92,
-		"y": 366,
-		"x1": 200,
-		"y1": 260,
-		"x2": 200,
-		"y2": 472
-	},
-	{
-		"id": "DPad right extension",
-		"target": "Right",
 		"shape": "rectangle",
-		"x": 200,
-		"y": 290,
-		"width": 46,
-		"height": 182
+		"x": 142,
+		"y": 339,
+		"width": 77,
+		"height": 55
 	},
 	{
 		"id": "A button",
