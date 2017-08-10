@@ -7,3 +7,6 @@
 [submodule "jni/SDL_image"]
 	path = jni/SDL_image
 	url = https://github.com/radialapps/SDL2_image.git
+[submodule "jni/SDL"]
+	path = jni/SDL
+	url = https://github.com/spurious/SDL-mirror.git
