@@ -15,7 +15,7 @@ include $(L_PATH)/mkxp-wrapper/Android.mk
 include $(L_PATH)/OpenAL/Android.mk
 include $(L_PATH)/ruby/Android.mk
 include $(L_PATH)/SDL_image.mk
-include $(L_PATH)/SDL_sound/Android.mk
+include $(L_PATH)/SDL_sound.mk
 include $(L_PATH)/libvorbis/Android.mk
 
 #include $(call all-subdir-makefiles)

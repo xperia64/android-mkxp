@@ -1,10 +1,10 @@
-LOCAL_PATH := $(call my-dir)
+LOCAL_PATH := $(call my-dir)/SDL_sound
 
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := SDL2_sound
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH)  $(LOCAL_PATH)/../SDL/include $(LOCAL_PATH)/include $(LOCAL_PATH)/decoders $(LOCAL_PATH)/decoders/libmpg123 $(LOCAL_PATH)/../vorbis-include			                                       
+LOCAL_C_INCLUDES := $(LOCAL_PATH)  $(LOCAL_PATH)/include $(LOCAL_PATH)/decoders $(LOCAL_PATH)/decoders/libmpg123
 LOCAL_CFLAGS := -O3 -DHAVE_CONFIG_H -DREAL_IS_FLOAT -DOPT_GENERIC -DMPG123_NO_CONFIGURE -DSOUND_SUPPORTS_MPG123
 
 LOCAL_CPP_EXTENSION := .cpp
@@ -40,7 +40,7 @@ LOCAL_SRC_FILES := $(notdir $(wildcard $(LOCAL_PATH)/*.c)) \
 						$(LOCAL_PATH)/decoders/libmpg123/decode.c 
 
 
-#LOCAL_STATIC_LIBRARIES := ogg vorbis
+LOCAL_STATIC_LIBRARIES := ogg vorbis SDL2_static
 
 LOCAL_LDLIBS :=
 
