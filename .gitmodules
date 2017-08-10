@@ -19,3 +19,6 @@
 [submodule "jni/physfs"]
 	path = jni/physfs
 	url = https://github.com/criptych/physfs.git
+[submodule "jni/SDL_sound"]
+	path = jni/SDL_sound
+	url = https://github.com/Ancurio/SDL_sound.git
