@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:///media/exdata/compile/android-mkxp/android-mkxp.iml" filepath="/media/exdata/compile/android-mkxp/android-mkxp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-mkxp.iml" filepath="$PROJECT_DIR$/android-mkxp.iml" />
     </modules>
   </component>
 </project>

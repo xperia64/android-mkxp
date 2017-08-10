@@ -1,0 +1,24 @@
+[submodule "jni/mkxp"]
+	path = jni/mkxp
+	url = https://github.com/radialapps/mkxp
+[submodule "jni/SDL_ttf"]
+	path = jni/SDL_ttf
+	url = https://github.com/radialapps/SDL2_ttf.git
+[submodule "jni/SDL_image"]
+	path = jni/SDL_image
+	url = https://github.com/radialapps/SDL2_image.git
+[submodule "jni/SDL"]
+	path = jni/SDL
+	url = https://github.com/spurious/SDL-mirror.git
+[submodule "jni/pixman"]
+	path = jni/pixman
+	url = https://anongit.freedesktop.org/git/pixman.git
+[submodule "jni/ogg"]
+	path = jni/ogg
+	url = https://github.com/xiph/ogg.git
+[submodule "jni/physfs"]
+	path = jni/physfs
+	url = https://github.com/criptych/physfs.git
+[submodule "jni/SDL_sound"]
+	path = jni/SDL_sound
+	url = https://github.com/Ancurio/SDL_sound.git

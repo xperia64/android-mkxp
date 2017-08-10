@@ -1,6 +1,6 @@
 package org.ancurio.mkxp;
+
 import android.content.Context;
-import android.os.Build;
 
 import org.libsdl.app.SDLActivity;
 
