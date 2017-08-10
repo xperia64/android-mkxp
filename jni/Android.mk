@@ -1,7 +1,7 @@
 #LOCAL_PATH:= $(call my-dir)
 
 L_PATH := $(call my-dir)
-include $(L_PATH)/SDL/Android.mk
+include $(L_PATH)/SDL.mk
 include $(L_PATH)/SDL_ttf.mk
 include $(L_PATH)/boost.program_options/Android.mk
 include $(L_PATH)/fluidsynth/Android.mk
