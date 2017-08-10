@@ -13,3 +13,6 @@
 [submodule "jni/pixman"]
 	path = jni/pixman
 	url = https://anongit.freedesktop.org/git/pixman.git
+[submodule "jni/ogg"]
+	path = jni/ogg
+	url = https://github.com/xiph/ogg.git

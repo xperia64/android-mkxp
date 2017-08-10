@@ -1,4 +1,4 @@
-LOCAL_PATH := $(call my-dir)
+LOCAL_PATH := $(call my-dir)/ogg
 
 include $(CLEAR_VARS)
 
@@ -13,7 +13,7 @@ endif
 
 
 LOCAL_SRC_FILES := \
-	bitwise.c \
-	framing.c
+	$(LOCAL_PATH)/src/bitwise.c \
+	$(LOCAL_PATH)/src/framing.c
 
 include $(BUILD_STATIC_LIBRARY)
