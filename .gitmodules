@@ -16,3 +16,6 @@
 [submodule "jni/ogg"]
 	path = jni/ogg
 	url = https://github.com/xiph/ogg.git
+[submodule "jni/physfs"]
+	path = jni/physfs
+	url = https://github.com/criptych/physfs.git
