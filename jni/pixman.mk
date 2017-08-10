@@ -6,12 +6,12 @@ LIBPIXMAN_SRC= \
 	       $(LOCAL_PATH)/pixman/pixman-access-accessors.c      \
 		   $(LOCAL_PATH)/pixman/pixman-arm.c                   \
 		   $(LOCAL_PATH)/pixman/pixman-combine32.c             \
-		   $(LOCAL_PATH)/pixman/pixman-combine-float.c             \
-		   $(LOCAL_PATH)/pixman/pixman-filter.c             \
-		   $(LOCAL_PATH)/pixman/pixman-glyph.c             \
-		   $(LOCAL_PATH)/pixman/pixman-mips.c             \
-		   $(LOCAL_PATH)/pixman/pixman-ppc.c             \
-		   $(LOCAL_PATH)/pixman/pixman-x86.c             \
+		   $(LOCAL_PATH)/pixman/pixman-combine-float.c         \
+		   $(LOCAL_PATH)/pixman/pixman-filter.c                \
+		   $(LOCAL_PATH)/pixman/pixman-glyph.c                 \
+		   $(LOCAL_PATH)/pixman/pixman-mips.c                  \
+		   $(LOCAL_PATH)/pixman/pixman-ppc.c                   \
+		   $(LOCAL_PATH)/pixman/pixman-x86.c                   \
 	       $(LOCAL_PATH)/pixman/pixman-gradient-walker.c       \
 	       $(LOCAL_PATH)/pixman/pixman-region16.c              \
 	       $(LOCAL_PATH)/pixman/pixman-region32.c              \
@@ -28,7 +28,7 @@ LIBPIXMAN_SRC= \
 	       $(LOCAL_PATH)/pixman/pixman-edge.c                  \
 	       $(LOCAL_PATH)/pixman/pixman-edge-accessors.c        \
 	       $(LOCAL_PATH)/pixman/pixman-trap.c                  \
-		   $(LOCAL_PATH)/pixman/pixman-mmx.c                  \
+		   $(LOCAL_PATH)/pixman/pixman-mmx.c                   \
 	       $(LOCAL_PATH)/pixman/pixman-timer.c                 \
 	       $(LOCAL_PATH)/pixman/pixman-matrix.c                \
 	       $(LOCAL_PATH)/pixman/pixman-noop.c                  \

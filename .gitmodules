@@ -10,3 +10,6 @@
 [submodule "jni/SDL"]
 	path = jni/SDL
 	url = https://github.com/spurious/SDL-mirror.git
+[submodule "jni/pixman"]
+	path = jni/pixman
+	url = https://anongit.freedesktop.org/git/pixman.git
