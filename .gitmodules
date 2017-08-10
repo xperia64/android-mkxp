@@ -1,3 +1,9 @@
 [submodule "jni/mkxp"]
 	path = jni/mkxp
 	url = https://github.com/radialapps/mkxp
+[submodule "jni/SDL_ttf"]
+	path = jni/SDL_ttf
+	url = https://github.com/radialapps/SDL2_ttf.git
+[submodule "jni/SDL_image"]
+	path = jni/SDL_image
+	url = https://github.com/radialapps/SDL2_image.git

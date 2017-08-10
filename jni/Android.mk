@@ -2,7 +2,7 @@
 
 L_PATH := $(call my-dir)
 include $(L_PATH)/SDL/Android.mk
-include $(L_PATH)/SDL_ttf/Android.mk
+include $(L_PATH)/SDL_ttf.mk
 include $(L_PATH)/boost.program_options/Android.mk
 include $(L_PATH)/fluidsynth/Android.mk
 include $(L_PATH)/glib/Android.mk
@@ -13,7 +13,7 @@ include $(L_PATH)/OpenAL/Android.mk
 include $(L_PATH)/physfs/Android.mk
 include $(L_PATH)/pixman/Android.mk
 include $(L_PATH)/ruby/Android.mk
-include $(L_PATH)/SDL_image/Android.mk
+include $(L_PATH)/SDL_image.mk
 include $(L_PATH)/SDL_sound/Android.mk
 include $(L_PATH)/libogg/Android.mk
 include $(L_PATH)/libvorbis/Android.mk

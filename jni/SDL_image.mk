@@ -1,4 +1,4 @@
-LOCAL_PATH := $(call my-dir)
+LOCAL_PATH := $(call my-dir)/SDL_image
 
 include $(CLEAR_VARS)
 
